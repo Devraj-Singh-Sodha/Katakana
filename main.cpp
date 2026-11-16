@@ -55,13 +55,41 @@ class TextProccesor{
 
 };
     
-    int main(){
-        TextProccesor test1;
-        vector<string> ans;
-        ans = test1.token("what is a diffrence between abstraction and polymorphism");
-        
-        for (const string &t : ans) {
-            cout << t << endl;
+int main(){
+    TextProccesor test1;
+
+    while (true)
+    {
+        int choice;
+        cout << "Katakana ""Search Engine""" << endl
+             << "1. Search" << endl
+             << "2. Exit:" << endl;
+        cin >> choice;
+
+        if (choice == 1)
+        {
+            string query;
+            cout << "Enter Query = ";
+            cin.ignore();
+            getline(cin, query);
+            
+            vector<string> ans;
+            ans = test1.token(query);
+                
+            for (const string &t : ans) {
+                cout << t << endl;
+            }
+
         }
+        else if (choice == 2)
+        {
+            break;
+        }
+        else{
+            cout << "Invalid Chocie:" << endl;
+        }
+        
+    }
+    
     return 0;
 }
